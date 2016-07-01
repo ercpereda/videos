@@ -1,0 +1,14 @@
+<div class="video-detail" *ngIf="video">
+    <h4>{{video.id}}</h4>
+    <h1>{{video.name}}</h1>
+    <h3>{{video.url}}</h3>
+    <p>
+        {{video.description}}
+    </p>
+    <video autoplay width="320" height="240" controls>
+      <source [src]="video.url" type="video/mp4">
+    </video>
+    <!-- <ul>
+        <li *ngFor="let rating of video.ratings">{{rating}}</li>
+    </ul> -->
+</div>

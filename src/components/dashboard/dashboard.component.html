@@ -1,0 +1,9 @@
+<div class="search-results"
+      infinite-scroll
+      [infiniteScrollUpDistance]="1"
+      [infiniteScrollThrottle]="500"
+      (scrolled)="onScroll()">
+
+</div>
+
+    <video-item *ngFor="let video of videos" [video]="video"></video-item>
