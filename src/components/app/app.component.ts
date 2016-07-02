@@ -4,6 +4,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import '../../../public/css/styles.css';
 
 import { VideosService } from '../../services/videos.service';
+import { AuthService } from '../../services/auth.service';
 
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HomeComponent } from '../home/home.component';
@@ -20,5 +21,11 @@ import { HomeComponent } from '../home/home.component';
   ]
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+
+  constructor(private authService: AuthService) {}
+
+  logout() {
+    this.authService.logout()
+      .subscribe((a: any) => console.log(a));
+  }
 }
