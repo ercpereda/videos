@@ -1,4 +1,5 @@
-.video-detail {
-  border: 1px solid red;
-  margin: 3px;
+video {
+  object-fit: contain;
+  width: 100% !important;
+  height: auto !important;
 }

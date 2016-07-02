@@ -1,14 +1,24 @@
-<div class="video-detail" *ngIf="video">
-    <h4>{{video.id}}</h4>
-    <h1>{{video.name}}</h1>
-    <h3>{{video.url}}</h3>
-    <p>
-        {{video.description}}
-    </p>
-    <video autoplay width="320" height="240" controls>
-      <source [src]="video.url" type="video/mp4">
-    </video>
-    <!-- <ul>
-        <li *ngFor="let rating of video.ratings">{{rating}}</li>
-    </ul> -->
+<div *ngIf="video">
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--10-col">
+            <h2>{{video.name}}</h2>
+        </div>
+        <div class="mdl-cell mdl-cell--2-col">
+            <button (click)="goBack()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                Go back
+            </button>
+        </div>
+    </div>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--8-col">
+            <video autoplay controls>
+                <source [src]="video.url" type="video/mp4">
+            </video>
+        </div>
+        <div class="mdl-cell mdl-cell--4-col">
+            <p>
+                {{video.description}}
+            </p>
+        </div>
+    </div>
 </div>

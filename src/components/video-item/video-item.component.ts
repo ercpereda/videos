@@ -24,6 +24,7 @@ export class VideoItemComponent {
     ) { }
 
     gotoDetail() {
+        console.log('!!!!!!!!!');
         this.router.navigate(['/video', this.video.id]);
     }
 

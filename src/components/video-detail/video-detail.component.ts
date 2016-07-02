@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Video } from '../../models/video';
 
@@ -17,6 +17,7 @@ export class VideoDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private authService: AuthService,
     private videosService: VideosService
   ) { }
@@ -31,8 +32,11 @@ export class VideoDetailComponent implements OnInit, OnDestroy {
     });
   }
 
+  goBack() {
+    this.router.navigate(['/dashboard']);
+  }
+
   ngOnDestroy() {
-    console.log('@@@@');
     this.paramsObservable.unsubscribe();
   }
 }
