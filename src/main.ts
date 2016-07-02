@@ -1,6 +1,7 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 import { APP_ROUTER_PROVIDER } from './config/routes';
 
@@ -15,7 +16,9 @@ import { AppComponent } from './components/app/app.component';
 let providers = [
   APP_ROUTER_PROVIDER,
   HTTP_PROVIDERS,
-  AuthService
+  AuthService,
+  disableDeprecatedForms(),
+  provideForms()
 ];
 
 if (process.env.ENV === 'production') {
