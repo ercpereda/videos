@@ -1,7 +1,7 @@
 <section class="rating-bar">
-  <i class="material-icons" (click)="rate(1)">star rate</i>
-  <i class="material-icons" (click)="rate(2)">star rate</i>
-  <i class="material-icons" (click)="rate(3)">star rate</i>
-  <i class="material-icons" (click)="rate(4)">star rate</i>
-  <i class="material-icons" (click)="rate(5)">star rate</i>
+  <i class="material-icons" (mouseleave)="mouseleave()" (mouseenter)="mouseenter(1)" (click)="rate(1)">{{stars[0]}}</i>
+  <i class="material-icons" (mouseleave)="mouseleave()" (mouseenter)="mouseenter(2)" (click)="rate(2)">{{stars[1]}}</i>
+  <i class="material-icons" (mouseleave)="mouseleave()" (mouseenter)="mouseenter(3)" (click)="rate(3)">{{stars[2]}}</i>
+  <i class="material-icons" (mouseleave)="mouseleave()" (mouseenter)="mouseenter(4)" (click)="rate(4)">{{stars[3]}}</i>
+  <i class="material-icons" (mouseleave)="mouseleave()" (mouseenter)="mouseenter(5)" (click)="rate(5)">{{stars[4]}}</i>
 </section>

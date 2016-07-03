@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 
-let md5 = require('md5');
-
 @Component({
   selector: 'login-form',
   template: require('./login-form.component.html'),
@@ -20,7 +18,7 @@ export class LoginFormComponent {
   ) { }
 
   login() {
-    this.authService.login(this.username, md5(this.password))
+    this.authService.login(this.username, this.password)
         .subscribe(
           (a: any)  => {
             console.log(a);

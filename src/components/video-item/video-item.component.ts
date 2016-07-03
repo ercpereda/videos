@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { SummaryPipe } from '../../pipes/summary.pipe';
+
 import { Video } from '../../models/video';
 
 import { AuthService } from '../../services/auth.service';
@@ -12,7 +14,8 @@ import { RatingBarComponent } from '../rating-bar/rating-bar.component';
     selector: 'video-item',
     template: require('./video-item.component.html'),
     styles: [require('./video-item.component.css')],
-    directives: [RatingBarComponent]
+    directives: [RatingBarComponent],
+    pipes: [SummaryPipe]
 })
 export class VideoItemComponent {
     @Input() video: Video;
@@ -27,8 +30,8 @@ export class VideoItemComponent {
         this.router.navigate(['/video', this.video.id]);
     }
 
-    rated(value: number) {
+    rate(value: number) {
         this.videosService.rate(this.video.id, value)
-            .subscribe((a: any) => console.log(a));
+            .subscribe((a: any) => this.video.addRating(value));
     }
 }
