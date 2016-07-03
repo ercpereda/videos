@@ -18,29 +18,35 @@ export class AuthService {
             .post(
             '/user/auth',
             JSON.stringify({ 'username': username, 'password': password }),
-            { headers }
-            )
+            { headers })
             .map((res: Response) => res.json())
             .map(res => {
                 if (res.status === 'success') {
                     this.loggedIn = true;
                     localStorage.setItem(this.storageKey, res.sessionId)
                 }
+                return res;
             });
     }
 
     logout() {
         let params = new URLSearchParams();
         params.set('sessionId', this.sessionId());
-        localStorage.removeItem('this.storageKey');
 
-        this.loggedIn = false;
         return this.http
             .get(
-              '/user/logout',
-              { search: params }
+            '/user/logout',
+            { search: params }
             )
-            .map((res: Response) => res.json());
+            .map((res: Response) => res.json())
+            .map(res => {
+              console.log(res);
+              if (res.status === 'success') {
+                this.loggedIn = false;
+                localStorage.removeItem(this.storageKey);
+              }
+              return res;
+            });
     }
 
     isLoggedIn() {
